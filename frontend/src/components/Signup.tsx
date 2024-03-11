@@ -30,7 +30,7 @@ export default function Signup(){
                 <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
                     Create an account</h2>
                 <h3 className="mt-10 text-center text-2xl font-semibold leading-9 tracking-tight text-gray-600">
-                    Already have an account?<Link to='/Signin' className="underline">Signin</Link></h3>
+                    Already have an account?<Link to='/' className="underline">Signin</Link></h3>
             </div>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-10 text-left text-2xl font-semibold leading-9 tracking-tight text-black">
