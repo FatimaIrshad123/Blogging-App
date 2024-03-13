@@ -26,12 +26,10 @@ app.post('/api/v1/signup', async(c) => {
 		c.status(411)
 		return c.json({
             message: "Invalid input"
-        })
-	}
+        })}
   const prisma = new PrismaClient({
     datasourceUrl: c.env?.DATABASE_URL,
 }).$extends(withAccelerate())
-  // console.log(body.email)
   try{let user = await prisma.user.create({
     data: {
       email: body.email,
@@ -43,8 +41,7 @@ app.post('/api/v1/signup', async(c) => {
 }catch(e){
 	c.status(403)
 	return c.json({message: 'User already exist'})
-}
-})
+}})
 
 app.post('/api/v1/signin', async (c) => {
 	const prisma = new PrismaClient({
@@ -56,8 +53,7 @@ app.post('/api/v1/signin', async (c) => {
 		c.status(411)
 		return c.json({
             message: "Invalid input"
-        })
-	}
+        })}
 	const user = await prisma.user.findUnique({
 		where: {
 			email: body.email
@@ -100,7 +96,6 @@ app.get('/api/v1/blog/bulk',async(c) => {
 })
 app.get('/api/v1/blog/:id', authmiddleware, async(c) => {
 	const id = c.req.param('id')
-	console.log(id);
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
