@@ -1,5 +1,0 @@
-name = "backened"
-compatibility_date = "2023-12-01"
-
-[vars]
-DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMjQ5ZTkyMDItZjY2Zi00NTVjLWIyOWQtZGQxNTVjZTZkNjI2IiwidGVuYW50X2lkIjoiMDU1OWI4ZTI4ZTE4NmY4YjlkNDEyOGIxNTU2OGIzYzRiY2ZjYzZlNmRkMWY4ZTAyYmFjNTg2NmU2NWFmOGJiMCIsImludGVybmFsX3NlY3JldCI6ImYzZTBjMWYyLTdlMjktNDZhNS05NzQxLThjNjQwNDA1OTEwZSJ9.2NJXipFR_2tSeLWslGaetqCKICSpcdi6J7Cr0hwy5N8"
