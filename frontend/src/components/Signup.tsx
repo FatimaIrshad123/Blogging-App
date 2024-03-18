@@ -11,17 +11,14 @@ export default function Signup(){
         password:''
     })
     async function sendRequest(){
-        const response = await axios.post("https://backened.bibimemoona2017.workers.dev/api/v1/signup",inputs)
-        try {
+        // const response = await axios.post("https://backened.bibimemoona2017.workers.dev/api/v1/signup",inputs)
+        
             const response = await axios.post("https://backened.bibimemoona2017.workers.dev/api/v1/signup",inputs)
             const jwt = response.data;
             localStorage.setItem("token",jwt)
             navigate('/blogs')
             console.log(response)
-        } catch (error) {
-            alert ('invalid inputs')
-            console.log(error)
-        }
+        
     }
     return (
         <div className="grid grid-cols-2">       
