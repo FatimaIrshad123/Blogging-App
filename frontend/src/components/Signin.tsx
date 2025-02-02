@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { SigninInput, signinInput } from "@fatimabibi/medium-common"
+import { SigninInput } from "@fatimabibi/medium-common"
 import axios from "axios"
 import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Signin() {
     const [inputs,setInputs] = useState<SigninInput>({
@@ -17,20 +19,28 @@ async function sendRequest(){
         localStorage.setItem("token",jwt)
         navigate('/blogs')
         console.log(response)
+        toast.success("Signup successful!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+          });
     } catch (error) {
         console.log(error)
+        toast.error("Signup failed. Please try again.", {position: "top-right"});
     }
 }
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          {/* Sign In Form */}
           <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all hover:scale-[1.01]">
             <div className="max-w-md mx-auto">
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back</h2>
               <p className="text-gray-600 mb-8">Please sign in to your account</p>
-              
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -48,7 +58,6 @@ async function sendRequest(){
                     />
                   </div>
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Password
@@ -65,7 +74,6 @@ async function sendRequest(){
                     />
                   </div>
                 </div>
-
                 <div className="flex items-center justify-between"/>
                 
                 <button
@@ -86,7 +94,6 @@ async function sendRequest(){
             </div>
           </div>
 
-          {/* Testimonial Section */}
           <div className="hidden md:block bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-xl p-8 text-white">
             <div className="h-full flex flex-col justify-center">
               <div className="mb-8">

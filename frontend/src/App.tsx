@@ -3,11 +3,13 @@ import Signin from "./components/Signin"
 import Signup from "./components/Signup"
 import Blogs from "./components/Blogs"
 import Createblogs from "./components/Createblogs"
+import { ToastContainer } from "react-toastify";
 
 function App() {
   
   return (
     <div>
+      <ToastContainer />
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Signin />} />
