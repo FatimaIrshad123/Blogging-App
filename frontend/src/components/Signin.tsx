@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { SigninInput, signinInput } from "@fatimabibi/medium-common"
 import axios from "axios"
-
+import { Mail, Lock, ArrowRight } from 'lucide-react';
 
 export default function Signin() {
     const [inputs,setInputs] = useState<SigninInput>({
@@ -22,51 +22,89 @@ async function sendRequest(){
     }
 }
   return (
-    <div className="grid grid-cols-2">       
-        <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
-                    Login to your account</h2>
-                <h3 className="mt-10 text-center text-2xl font-semibold leading-9 tracking-tight text-gray-600">
-                    Don't have an account?<Link to='/Signup' className="underline">Signup</Link></h3>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Sign In Form */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all hover:scale-[1.01]">
+            <div className="max-w-md mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back</h2>
+              <p className="text-gray-600 mb-8">Please sign in to your account</p>
+              
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email address
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Mail className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="email"
+                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      placeholder="you@example.com"
+                      onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Lock className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="password"
+                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      placeholder="Enter your password"
+                      onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between"/>
+                
+                <button
+                  onClick={sendRequest}
+                  className="w-full flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform transition-all active:scale-95"
+                >
+                  Sign in
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+
+                <p className="text-center text-sm text-gray-600">
+                  Don't have an account?{' '}
+                  <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    Create one now
+                  </Link>
+                </p>
+              </div>
             </div>
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-left text-2xl font-semibold leading-9 tracking-tight text-black">
-                    Email</h2>
-            <input placeholder="Enter Email" type="text" 
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
-            ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset
-             focus:ring-indigo-600 sm:text-sm sm:leading-6"
-             onChange={(e) => setInputs({
-                ...inputs,
-                email : e.target.value
-             })}/>
-             
-             <h2 className="mt-10 text-left text-2xl font-semibold leading-9 tracking-tight text-black">
-                    Password</h2>
-            <input placeholder="Enter Password" type="password" 
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
-            ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset
-             focus:ring-indigo-600 sm:text-sm sm:leading-6"
-             onChange={(e) => setInputs({
-                ...inputs,
-                password : e.target.value
-             })}/>
-             <br/>
-            <button onClick={sendRequest}
-            className="flex w-full justify-center rounded-md
-                 bg-black px-3 py-1.5 text-sm font-semibold leading-6
-                  text-white shadow-sm
-                  hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" 
-                  >Login</button>
-            <br/><br/>
+          </div>
+
+          {/* Testimonial Section */}
+          <div className="hidden md:block bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-xl p-8 text-white">
+            <div className="h-full flex flex-col justify-center">
+              <div className="mb-8">
+                <svg className="h-12 w-12 text-white opacity-25" fill="currentColor" viewBox="0 0 32 32">
+                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                </svg>
+              </div>
+              <p className="text-xl font-medium mb-6">
+                The customer service I received was exceptional. The support team went above and beyond to address my concerns.
+              </p>
+              <div className="mt-auto">
+                <p className="font-semibold">Jules Winnfield</p>
+                <p className="text-indigo-100">CEO, Acme Inc</p>
+              </div>
             </div>
+          </div>
         </div>
-        <div className="justify-center px-10 mt-20 sm:mx-auto sm:w-full sm:max-w-sm invisible md:visible bg-slate-200">
-                <p className='font-bold text-2xl'>"The customer services I recieved was execptional. The support team went above and beyond to address my concerns."</p>
-                <p className="font-semibold text-2xl text-gray-800">Julles Winnfield</p>
-                <p className="text-gray-600">CEO, Acme Innc</p>
-            </div>
-        </div>
+      </div>
+    </div>
 )}
 

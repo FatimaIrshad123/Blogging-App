@@ -9,7 +9,7 @@ export default function Appbar(){
             <div className="flex mx-4">
                 <div className="mr-5">
                     <button className="rounded-lg bg-lime-500 p-2 px-4 text-white"
-                    onClick={() => {localStorage.removeItem('token')}}><Link to='/signin'>Logout</Link></button>
+                    onClick={() => {localStorage.removeItem('token')}}><Link to='/'>Logout</Link></button>
                 </div>
                 <div className="mr-5">
                     <button className="rounded-lg p-2 px-4 text-white bg-lime-500"
