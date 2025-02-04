@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import { LogOut, Feather, Mail } from 'lucide-react'
+import { LogOut, Feather, Mail, User } from 'lucide-react'
 
 export default function Appbar() {
     const navigate = useNavigate()
@@ -10,7 +10,7 @@ export default function Appbar() {
     }
 
     return (
-        <nav className="bg-gradient-to-br from-gray-50 to-gray-100 shadow-md m-3 p-2">
+        <nav className="bg-gradient-to-br from-gray-50 to-gray-100 shadow-md p-2 max-w-4xl mx-auto my-6">
             <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
                 <Link 
                     to="/blogs" 
@@ -34,7 +34,7 @@ export default function Appbar() {
                         Logout
                     </button>
                     <div className="w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center">
-                        <Mail className="h-5 w-5 text-gray-500" />
+                        <User className="h-5 w-5 text-gray-500" />
                     </div>
                 </div>
             </div>

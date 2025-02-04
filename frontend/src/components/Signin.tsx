@@ -15,7 +15,7 @@ export default function Signin() {
 async function sendRequest(){
     try {
         const response = await axios.post("https://backened.bibimemoona2017.workers.dev/api/v1/signin",inputs)
-        const jwt = response.data;
+        const jwt = response.data.jwt;
         localStorage.setItem("token",jwt)
         navigate('/blogs')
         console.log(response)
