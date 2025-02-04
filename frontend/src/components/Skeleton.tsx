@@ -1,46 +1,24 @@
-
-export default function Skeleton(){
-    return(
-        
-            <div role="status" className="space-y-2.5 animate-pulse max-w-lg">
-                <div className='justify-center m-8 border-2 rounded-lg shadow-lg p-5 ml-4'>
-                    <div className="flex">
-                        <div className="relative w-8 h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                        <div className="flex iteNamems-center w-full">
-                            <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
-                            <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
-                            <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
-                        </div>
-                        </div>
-                        <div className="flex items-center w-full max-w-[480px]">
-                            <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
-                                    <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
-                            <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
-                        </div>
-                    </div>      
-                    <div className="flex items-center w-full max-w-[400px]">
-                        <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
-                        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
-                        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+export default function Skeleton() {
+    return (
+        <div className="max-w-4xl mx-auto my-6">
+            <div className="bg-white rounded-xl shadow-lg p-6 animate-pulse">
+                <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-10 h-10 bg-gray-200 rounded-full" />
+                    <div className="space-y-2 flex-1">
+                        <div className="h-4 bg-gray-200 rounded w-32" />
+                        <div className="h-3 bg-gray-200 rounded w-24" />
                     </div>
-                    <div className="flex items-center w-full max-w-[480px]">
-                        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
-                                <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
-                        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                </div>
+                
+                <div className="space-y-4 mt-6">
+                    <div className="h-6 bg-gray-200 rounded w-3/4" />
+                    <div className="space-y-2">
+                        <div className="h-4 bg-gray-200 rounded w-full" />
+                        <div className="h-4 bg-gray-200 rounded w-full" />
+                        <div className="h-4 bg-gray-200 rounded w-2/3" />
                     </div>
-                  </div>    
-    
-    <div className="flex items-center w-full max-w-[440px]">
-        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
-        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
-        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
-    </div>
-    <div className="flex items-center w-full max-w-[360px]">
-        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
-        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
-        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
-    </div>
-    <span className="sr-only">Loading...</span>
-</div>
+                </div>
+            </div>
+        </div>
     )
 }
