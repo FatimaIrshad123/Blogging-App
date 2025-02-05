@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { User, Clock } from 'lucide-react'
 import Appbar from "./Appbar";
 import Skeleton from "./Skeleton";
+import {BACKEND_URL} from '../../url'
 
 interface Blogs {
     id: string;
@@ -58,7 +59,7 @@ export default function Blogs(){
             res.json().then(callback2)
             setLoading(false)
           }
-        fetch('https://backened.bibimemoona2017.workers.dev/api/v1/blog/bulk',{method:'GET'}).then(callback1)
+        fetch(`${BACKEND_URL}/blog/bulk`,{method:'GET'}).then(callback1)
     },[])
     
     if (loading){

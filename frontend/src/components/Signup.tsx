@@ -5,6 +5,7 @@ import {SignupInput} from '@fatimabibi/medium-common'
 import { Mail, Lock, ArrowRight,UserRound } from 'lucide-react';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {BACKEND_URL} from '../../url'
 
 export default function Signup(){
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ export default function Signup(){
     })
     async function sendRequest(){
         try {
-            const response = await axios.post("https://backened.bibimemoona2017.workers.dev/api/v1/signup",inputs)
+            const response = await axios.post(`${BACKEND_URL}/signup`,inputs)
             const jwt = response.data;
             localStorage.setItem("token",jwt)
             navigate('/blogs')

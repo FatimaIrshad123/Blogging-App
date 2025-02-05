@@ -5,6 +5,7 @@ import axios from "axios"
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {BACKEND_URL} from '../../url'
 
 export default function Signin() {
     const [inputs,setInputs] = useState<SigninInput>({
@@ -14,7 +15,7 @@ export default function Signin() {
     const navigate = useNavigate()
 async function sendRequest(){
     try {
-        const response = await axios.post("https://backened.bibimemoona2017.workers.dev/api/v1/signin",inputs)
+        const response = await axios.post(`${BACKEND_URL}/signin`,inputs)
         const jwt = response.data.jwt;
         localStorage.setItem("token",jwt)
         navigate('/blogs')

@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://backened.bibimemoona2017.workers.dev/api/v1"

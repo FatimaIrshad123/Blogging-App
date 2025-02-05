@@ -3,6 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import Appbar from "./Appbar";
 import { Send } from "lucide-react";
+import {BACKEND_URL} from '../../url'
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Createblogs(){
     const [postInputs, setPostInputs] = useState<CreateBlogInput>({
@@ -10,17 +13,33 @@ export default function Createblogs(){
         content:''
     })
     async function sendRequest(){
+        if (!postInputs.title.trim() || !postInputs.content.trim()) {
+            toast.error("Title and content cannot be empty", { position: "top-right" });
+            return;
+        }
+        
         try {
-            const response = await axios.post("https://backened.bibimemoona2017.workers.dev/api/v1/blog",postInputs,{
+            const response = await axios.post(`${BACKEND_URL}/blog`,postInputs,{
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `${localStorage.getItem("token")}`
                 }
             })
-            localStorage.getItem("token")
-            console.log(response)
+
+            localStorage.getItem("token");
+            toast.success("Post created successfully", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "light",
+                      });
+                      setPostInputs({ title: "", content: "" });
         } catch (error) {
             console.log(error)
+            toast.error("An error occurred while creating post", {position: "top-right"});
         }
     }
     return (  
